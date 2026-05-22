@@ -48,6 +48,12 @@ Chaque root doit utiliser les directives `@yield` pour définir les zones dynami
 2. Pourquoi utilise-t-on `@extends` plutôt que d'inclure le header et le footer manuellement dans chaque fichier de vue ?
 3. Comment s'assure-t-on qu'une vue du dashboard n'étende jamais accidentellement le layout public ?
 
+**Réponses :**
+
+1. `@yield('title')` affiche seulement le contenu fourni par une section `title`; s'il n'y a pas de section, c'est vide. `@yield('title', 'Valeur par défaut')` affiche la valeur par défaut si la section n'est pas définie.
+2. `@extends` centralise la structure commune (head, header, footer), évite la duplication, simplifie la maintenance et réduit les incohérences entre pages.
+3. On sépare clairement les layouts (`app.blade.php` et `dashboard.blade.php`), on range les vues dashboard dans `resources/views/dashboard/`, puis ces vues utilisent explicitement `@extends('dashboard')`.
+
 ---
 
 ### Question 2 — Assets & Composants de la partie publique
@@ -76,6 +82,11 @@ Chaque root doit utiliser les directives `@yield` pour définir les zones dynami
 1. Comment rendre la classe `active` d'un lien de la sidebar **dynamique** selon la route courante, en utilisant `request()->routeIs()` ou `Route::currentRouteName()` ?
 2. Pourquoi est-il préférable de placer les composants du dashboard dans un sous-dossier `components/dashboard/` plutôt que directement dans `components/` ?
 
+**Réponses :**
+
+1. On peut faire une classe conditionnelle avec `request()->routeIs(...)`, par exemple : `class="{{ request()->routeIs('dashboard.articles') ? 'active' : '' }}"`.
+2. Le sous-dossier `components/dashboard/` améliore l'organisation, évite les collisions de noms avec les composants publics et rend l'intention plus claire.
+
 ---
 
 ### Question 4 — Création des routes
@@ -98,6 +109,13 @@ Dans le fichier `routes/web.php`, déclarez une route nommée pour chacune des v
 2. Comment déclarer et nommer une route avec la méthode `->name()` ? Pourquoi les noms de routes sont-ils indispensables pour utiliser `route()` dans les vues Blade ?
 3. Qu'est-ce qu'un paramètre de route dynamique comme `{id}` ? Comment le récupérer dans le contrôleur ?
 4. Que se passe-t-il si deux routes ont la même URL mais des méthodes HTTP différentes (`GET` et `POST`) ?
+
+**Réponses :**
+
+1. `Route::get()` répond aux requêtes GET (lecture/affichage), `Route::post()` répond aux requêtes POST (soumission/écriture).
+2. Exemple : `Route::get('/articles', [MainController::class, 'articles'])->name('articles.index');`. Les noms de routes sont nécessaires pour générer des URLs stables avec `route()` dans Blade.
+3. `{id}` ou `{slug}` est un paramètre dynamique dans l'URL. On le récupère en argument de méthode contrôleur, ex: `article($slug)`.
+4. Laravel distingue ces routes par méthode HTTP: GET ira vers l'action GET, POST vers l'action POST, même avec la même URL.
 
 ---
 
@@ -126,6 +144,12 @@ Exemple de routes attendues :
 1. Quelle est la syntaxe complète pour créer un groupe de routes avec un préfixe d'URL et un préfixe de nom en même temps ?
 2. Quelle est la différence entre `Route::prefix()` et `Route::middleware()` dans un groupe de routes ?
 3. Qu'est-ce que `Route::resource()` ? Pour quelles ressources (articles, catégories, utilisateurs) serait-il pertinent de l'utiliser et quelles routes génère-t-il automatiquement ?
+
+**Réponses :**
+
+1. Syntaxe complète: `Route::prefix('dashboard')->name('dashboard.')->group(function () { ... });`
+2. `Route::prefix()` ajoute un préfixe d'URL au groupe; `Route::middleware()` ajoute des middlewares (auth, etc.) aux routes du groupe.
+3. `Route::resource()` crée automatiquement les routes CRUD REST (index, create, store, show, edit, update, destroy). C'est pertinent pour articles, catégories et utilisateurs si on implémente un CRUD complet.
 
 ---
 
@@ -160,6 +184,22 @@ Chaque méthode doit retourner sa vue correspondante avec `return view('...')`.
    return view('articles', compact('posts'));
    return view('articles')->with('posts', $posts);
    ```
+
+**Réponses :**
+
+1. Générer un contrôleur: `php artisan make:controller NomController`. Contrôleur de ressource: `php artisan make:controller NomController --resource`.
+2. Convention ressource:
+    - `index`: liste
+    - `show`: détail
+    - `create`: formulaire de création
+    - `store`: enregistrement
+    - `edit`: formulaire d'édition
+    - `update`: mise à jour
+    - `destroy`: suppression
+3. Les trois syntaxes sont équivalentes sur le fond (transmettre des données à la vue). Elles diffèrent surtout par le style:
+    - tableau associatif explicite
+    - `compact()` plus concis
+    - `with()` en chaînage fluide
 
 ---
 
