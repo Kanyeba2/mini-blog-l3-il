@@ -18,8 +18,9 @@
 
     <div class="article-layout">
         <main class="article-body">
-            <p class="article-lead">Dans cet article, je partage une méthode simple pour progresser régulièrement en Laravel sans s'épuiser.</p>
-            <p>Je travaille par cycles courts: une notion, une mise en pratique, un mini bilan. Cette approche m'aide à consolider mes acquis et à garder une base de code propre.</p>
+            <p class="article-lead">Dans cet article, je partage une méthode simple pour préparer un café équilibré, aromatique et régulier au quotidien.</p>
+            <p>Je détaille les points qui changent tout: fraîcheur du grain, taille de mouture, ratio eau/café, température et temps d'extraction.</p>
+            <p>Avec quelques ajustements progressifs, chaque tasse devient plus claire, plus sucrée et plus agréable.</p>
             <p>Rédigé par Sephora KANYEBA.</p>
         </main>
     </div>

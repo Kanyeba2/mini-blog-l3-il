@@ -7,7 +7,7 @@
         <div class="hero-left">
             <div class="page-tag">À propos</div>
             <h1 class="page-title">Sephora KANYEBA</h1>
-            <p class="page-intro">Étudiante en informatique, je construis ce mini-blog pour documenter mes progrès en Laravel, partager mes essais et structurer mes connaissances.</p>
+            <p class="page-intro">Passionnée de café de spécialité, je partage ici mes recettes, mes tests de mouture, mes découvertes de torréfactions et mes conseils pour mieux déguster au quotidien.</p>
         </div>
     </div>
 @endsection

@@ -1,15 +1,15 @@
 @extends('dashboard')
 
-@section('title', 'Réglages - Dashboard')
-@section('topbar_title', 'Réglages')
+@section('title', 'Moutures - Dashboard')
+@section('topbar_title', 'Moutures')
 
 @section('content')
     <div class="panel">
         <div class="panel-header">
-            <div class="panel-title">Réglages</div>
+            <div class="panel-title">Moutures et extraction</div>
         </div>
         <div class="panel-body">
-            <p class="text-muted">Paramètres généraux de l'administration.</p>
+            <p class="text-muted">Parametres generaux: mouture, extraction et publication.</p>
         </div>
     </div>
 @endsection

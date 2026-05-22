@@ -5,9 +5,9 @@
 @section('content')
     <section class="hero">
         <div>
-            <p class="hero-tag">Carnet de Sephora KANYEBA</p>
-            <h1 class="hero-title">Pensées utiles, projets concrets, apprentissages réels</h1>
-            <p class="hero-desc">Un mini-blog personnel où je partage mon parcours en développement web, mes méthodes de travail et mes retours d'expérience.</p>
+            <p class="hero-tag">Carnet café de Sephora KANYEBA</p>
+            <h1 class="hero-title">Arômes intenses, méthodes douces, passion café</h1>
+            <p class="hero-desc">Un mini-blog dédié au café: dégustation, préparation à la maison, découverte des origines et astuces pour une tasse mémorable.</p>
         </div>
     </section>
 
@@ -24,20 +24,20 @@
             <a href="{{ route('articles.index') }}" class="section-link">Voir tout →</a>
         </div>
         <div class="articles-grid">
-            <a href="{{ route('articles.show', ['slug' => 'mon-plan-de-progression-laravel']) }}" class="article-card featured">
-                <div class="article-cat">Parcours • À la une</div>
-                <h2 class="article-title">Mon plan de progression Laravel sur 90 jours</h2>
-                <p class="article-excerpt">Objectifs hebdomadaires, mini-projets et bonnes habitudes pour progresser sans se disperser.</p>
+            <a href="{{ route('articles.show', ['slug' => 'guide-filtre-v60']) }}" class="article-card featured">
+                <div class="article-cat">Méthodes • À la une</div>
+                <h2 class="article-title">Guide complet du café filtre V60</h2>
+                <p class="article-excerpt">Mouture, ratio eau/café, température et technique de versement pour un résultat équilibré.</p>
             </a>
 
-            <a href="{{ route('articles.show', ['slug' => 'organiser-son-code-blade']) }}" class="article-card">
-                <div class="article-cat">Architecture</div>
-                <h3 class="article-title">Comment organiser ses vues Blade proprement</h3>
+            <a href="{{ route('articles.show', ['slug' => 'espresso-a-la-maison']) }}" class="article-card">
+                <div class="article-cat">Extraction</div>
+                <h3 class="article-title">Réussir son espresso à la maison</h3>
             </a>
 
-            <a href="{{ route('articles.show', ['slug' => 'journal-de-debug']) }}" class="article-card">
-                <div class="article-cat">Productivité</div>
-                <h3 class="article-title">Journal de debug: ce qui m'a fait gagner du temps</h3>
+            <a href="{{ route('articles.show', ['slug' => 'origines-et-torrefaction']) }}" class="article-card">
+                <div class="article-cat">Culture café</div>
+                <h3 class="article-title">Comprendre les origines et la torréfaction</h3>
             </a>
         </div>
     </section>
