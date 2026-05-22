@@ -1,15 +1,15 @@
 @extends('dashboard')
 
-@section('title', 'Notes degustation - Dashboard')
-@section('topbar_title', 'Notes degustation')
+@section('title', 'Commentaires - Dashboard')
+@section('topbar_title', 'Commentaires')
 
 @section('content')
     <div class="panel">
         <div class="panel-header">
-            <div class="panel-title">Gestion des notes de degustation</div>
+            <div class="panel-title">Gestion des commentaires</div>
         </div>
         <div class="panel-body">
-            <p class="text-muted">Moderation des retours clients sur les recettes.</p>
+            <p class="text-muted">Modération des commentaires.</p>
         </div>
     </div>
 @endsection
