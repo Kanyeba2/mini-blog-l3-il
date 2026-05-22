@@ -1,0 +1,367 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+header {
+    background: #1e293b;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    background: #334155;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 15px;
+}
+
+.blog-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.blog-meta {
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.blog-description {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.tags {
+    margin-bottom: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e2e8f0;
+    color: #334155;
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.read-more {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+footer {
+    background: #1e293b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #93c5fd;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== AJOUTS POUR LA PAGE ARTICLE ===== */
+
+/*
+         * NOUVEAUX STYLES AJOUTÉS :
+         * - .article-hero          : hero spécifique à la page article (plus haut, image de fond)
+         * - .article-hero-content  : contenu centré dans le hero article
+         * - .article-hero h1       : titre plus grand dans le hero
+         * - .article-container     : largeur réduite pour la lisibilité du corps de texte
+         * - .article-meta-bar      : barre de méta-données enrichie (auteur, date, catégorie, temps de lecture)
+         * - .meta-item             : chaque élément de la barre de méta
+         * - .meta-separator        : séparateur "·" entre les méta
+         * - .article-cover         : image de couverture pleine largeur avec border-radius
+         * - .article-body          : contenu typographié de l'article
+         * - .article-body h2/h3    : sous-titres dans le corps
+         * - .article-body p        : paragraphes avec interligne confortable
+         * - .article-body blockquote : citation stylisée avec bordure bleue
+         * - .article-body ul/li    : liste stylisée
+         * - .article-footer-meta   : zone de méta en bas de l'article (tags + partage)
+         * - .share-btn             : bouton de partage social
+         * - .back-link             : lien "← Retour aux articles"
+         * - .related-section       : section "Articles similaires"
+         * - .related-grid          : grille 3 colonnes pour les articles liés
+         */
+
+.article-hero {
+    background: #334155;
+    color: white;
+    padding: 50px 30px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://picsum.photos/1200/400?2') center/cover no-repeat;
+    opacity: 0.2;
+}
+
+.article-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.article-hero h1 {
+    font-size: 32px;
+    margin: 0 0 12px;
+    line-height: 1.3;
+}
+
+.article-hero .blog-meta {
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+.article-container {
+    max-width: 780px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #3b82f6;
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.article-meta-bar {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 14px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.meta-item strong {
+    color: #1e293b;
+}
+
+.meta-separator {
+    color: #cbd5e1;
+}
+
+.meta-category {
+    background: #3b82f6;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.article-cover {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.article-body {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 30px 36px;
+    margin-bottom: 24px;
+}
+
+.article-body h2 {
+    font-size: 22px;
+    color: #1e293b;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    border-left: 4px solid #3b82f6;
+    padding-left: 12px;
+}
+
+.article-body h3 {
+    font-size: 18px;
+    color: #334155;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+.article-body p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #374151;
+    margin-bottom: 16px;
+}
+
+.article-body blockquote {
+    border-left: 4px solid #3b82f6;
+    background: #f0f6ff;
+    margin: 20px 0;
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #334155;
+}
+
+.article-body ul {
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+.article-body ul li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.article-footer-meta {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 20px 24px;
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.share-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1e293b;
+    margin-right: 8px;
+}
+
+.share-btn {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    margin-right: 6px;
+}
+
+.share-btn.twitter {
+    background: #1da1f2;
+    color: white;
+}
+
+.share-btn.linkedin {
+    background: #0077b5;
+    color: white;
+}
+
+.share-btn.copy {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.related-section {
+    margin-bottom: 40px;
+}
+
+.related-section h2 {
+    font-size: 20px;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
